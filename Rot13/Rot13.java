@@ -24,7 +24,7 @@ public class Rot13 {
                         }
                     }
                 }
-            }
+            }else if (cadena.charAt(i) == ' ') xifrat.append(" ");
         }
         return xifrat;
     }
@@ -36,17 +36,25 @@ public class Rot13 {
                 if(Character.isUpperCase(cadena.charAt(i))){
                     for(int x = 0; x < ABCUPPER.length; x++){
                         if(ABCUPPER[x].equals(Character.toString(cadena.charAt(i)))){
-                            desxifrat.append(ABCUPPER[Math.abs((x - 13)%ABCUPPER.length)]);
+                            if ((x -13) < 0){
+                                desxifrat.append(ABCUPPER[((x+ABCUPPER.length) - 13)%ABCUPPER.length]);                               
+                            }else{
+                                desxifrat.append(ABCUPPER[(x - 13)%ABCUPPER.length]);
+                            }                              
                         }
                     }
                 }else{
                     for(int y = 0; y < ABCLOWER.length; y++){
                         if(ABCLOWER[y].equals(Character.toString(cadena.charAt(i)))){
-                            desxifrat.append(ABCLOWER[Math.abs((y - 13)%ABCLOWER.length)]);
+                            if ((y -13) < 0){
+                                desxifrat.append(ABCLOWER[((y + ABCLOWER.length) - 13)%ABCLOWER.length]);                               
+                            }else{
+                                desxifrat.append(ABCLOWER[(y - 13)%ABCLOWER.length]);
+                            } 
                         }
                     }
                 }
-            }
+            }else if (cadena.charAt(i) == ' ') desxifrat.append(" ");
         }
         return desxifrat;
     }
