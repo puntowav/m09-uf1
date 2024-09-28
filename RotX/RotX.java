@@ -57,9 +57,11 @@ public class RotX {
         return desxifrat;
     }
 
-    public void forcaBrutaX (String cadena){
-        for(int i = 1; i < ABCLOWER.length; i++){
-            System.out.println(desxifraRotX(cadena, i));
+    public String[] forcaBrutaX (String cadena){
+        String[] toReturn = new String[ABCLOWER.length];
+        for(int i = 0; i < ABCLOWER.length; i++){
+            toReturn[i] = desxifraRotX(cadena, i + 1).toString();
         }
+        return  toReturn;
     }
 }
