@@ -22,7 +22,7 @@ public class RotX {
                         }
                     }
                 }
-            }else if (cadena.charAt(i) == ' ') xifrat.append(" ");
+            }else xifrat.append(cadena.charAt(i));
         }
         return xifrat;
     }
@@ -52,7 +52,7 @@ public class RotX {
                         }
                     }
                 }
-            }else if (cadena.charAt(i) == ' ') desxifrat.append(" ");
+            }else desxifrat.append(cadena.charAt(i));
         }
         return desxifrat;
     }
