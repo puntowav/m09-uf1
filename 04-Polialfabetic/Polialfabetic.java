@@ -8,10 +8,10 @@ public class Polialfabetic {
 
     private static final char[] ABC = "AÁÀBCÇDEÉÈFGHIÍÏJKLMNÑOÓÒPQRSTUÚÜVWXYZ".toCharArray();
 
-    private static long clau = 998701;
+    private static final long CLAU = 998701860;
     private static Random random;
     private static char[] abcPermutat;
-
+    
     public void permutaAlfabet(char[] alfabet) {
         List<Character> abc = Arrays.asList(charArrayToCharacterArray(alfabet));
         Collections.shuffle(abc, random);
@@ -35,7 +35,7 @@ public class Polialfabetic {
     }
 
     public String xifraPoliAlfabet(String msg) {
-        initRandom();
+        generaRandom();
         StringBuilder msgXifrat = new StringBuilder();
 
         for (int i = 0; i < msg.length(); i++) {
@@ -62,7 +62,7 @@ public class Polialfabetic {
     }
 
     public String desxifraPoliAlfabet(String msgXifrat) {
-        initRandom();
+        generaRandom();
         StringBuilder msgDesxifrat = new StringBuilder();
 
         for (int i = 0; i < msgXifrat.length(); i++) {
@@ -86,8 +86,8 @@ public class Polialfabetic {
         return msgDesxifrat.toString();
     }
 
-    private static void initRandom() {
-        random = new Random(clau);
+    private static void generaRandom() {
+        random = new Random(CLAU);
     }
 
     public static void main(String[] args) {
