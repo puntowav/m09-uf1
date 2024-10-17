@@ -35,7 +35,7 @@ public class Polialfabetic {
     }
 
     public String xifraPoliAlfabet(String msg) {
-        generaRandom();
+        initRandom();
         StringBuilder msgXifrat = new StringBuilder();
 
         for (int i = 0; i < msg.length(); i++) {
@@ -62,7 +62,7 @@ public class Polialfabetic {
     }
 
     public String desxifraPoliAlfabet(String msgXifrat) {
-        generaRandom();
+        initRandom();
         StringBuilder msgDesxifrat = new StringBuilder();
 
         for (int i = 0; i < msgXifrat.length(); i++) {
@@ -86,7 +86,7 @@ public class Polialfabetic {
         return msgDesxifrat.toString();
     }
 
-    private static void generaRandom() {
+    private static void initRandom() {
         random = new Random(CLAU);
     }
 
