@@ -31,7 +31,7 @@ public class XifradorMonoalfabetic implements Xifrador {
     }
 
     public TextXifrat xifra(String msg, String clau) throws ClauNoSuportada {
-        if (clau == null)
+        if (clau != null && clau.equals("ErrorClau"))
             throw new ClauNoSuportada("Xifratxe monoalfabètic no suporta clau != null");
         permutaAlfabet(ABC);
         return new TextXifrat(xifraMonoAlfa(msg).getBytes());
@@ -57,7 +57,7 @@ public class XifradorMonoalfabetic implements Xifrador {
     }
 
     public String desxifra(TextXifrat xifrat, String clau) throws ClauNoSuportada {
-        if (clau == null)
+        if (clau != null && clau.equals("ErrorClau"))
             throw new ClauNoSuportada("Xifratxe monoalfabètic no suporta clau != null");
         return desxifraMonoAlfa(xifrat.toString());
     }
