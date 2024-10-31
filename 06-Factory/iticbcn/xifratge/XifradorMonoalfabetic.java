@@ -30,6 +30,13 @@ public class XifradorMonoalfabetic implements Xifrador {
         return array;
     }
 
+    public TextXifrat xifra(String msg, String clau) throws ClauNoSuportada {
+        if (clau == null)
+            throw new ClauNoSuportada("Xifratxe monoalfabètic no suporta clau != null");
+        permutaAlfabet(ABC);
+        return new TextXifrat(xifraMonoAlfa(msg).getBytes());
+    }
+
     public String xifraMonoAlfa(String cadena) {
         StringBuilder c = new StringBuilder();
         for (int i = 0; i < cadena.length(); i++) {
@@ -49,6 +56,12 @@ public class XifradorMonoalfabetic implements Xifrador {
         return c.toString();
     }
 
+    public String desxifra(TextXifrat xifrat, String clau) throws ClauNoSuportada {
+        if (clau == null)
+            throw new ClauNoSuportada("Xifratxe monoalfabètic no suporta clau != null");
+        return desxifraMonoAlfa(xifrat.toString());
+    }
+
     public String desxifraMonoAlfa(String cadena) {
         StringBuilder c = new StringBuilder();
         for (int i = 0; i < cadena.length(); i++) {
@@ -66,15 +79,6 @@ public class XifradorMonoalfabetic implements Xifrador {
                 c.append(cadena.charAt(i));
         }
         return c.toString();
-    }
-
-    public TextXifrat xifra(String msg, String clau) throws ClauNoSuportada {
-        permutaAlfabet(ABC);
-        return new TextXifrat(xifraMonoAlfa(msg).getBytes());
-    }
-
-    public String desxifra(TextXifrat xifrat, String clau) throws ClauNoSuportada {
-        return desxifraMonoAlfa(xifrat.toString());
     }
 
 }

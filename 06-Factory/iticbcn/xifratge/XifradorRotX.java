@@ -4,11 +4,14 @@ public class XifradorRotX implements Xifrador {
     private static final char[] ABCLOWER = "AÁÀBCÇDEÉÈFGHIÍÏJKLMNÑOÓÒPQRSTUÚÜVWXYZ".toLowerCase().toCharArray();
     private static final char[] ABCUPPER = "AÁÀBCÇDEÉÈFGHIÍÏJKLMNÑOÓÒPQRSTUÚÜVWXYZ".toCharArray();
 
-    public TextXifrat xifra(String msg, String clua) throws ClauNoSuportada {
+    public TextXifrat xifra(String msg, String clau) throws ClauNoSuportada {
         try {
-            return new TextXifrat(xifraRotx(msg, Integer.parseInt(clua)).getBytes());
+            int clauInt = Integer.parseInt(clau);
+            if (clauInt < 0 || clauInt > 40)
+                throw new ClauNoSuportada("Clau de RotX ha de ser un sencer de 0 a 40");
+            return new TextXifrat(xifraRotx(msg, clauInt).getBytes());
         } catch (Exception e) {
-            throw new ClauNoSuportada(e.getMessage());
+            throw new ClauNoSuportada("Clau de RotX ha de ser un sencer de 0 a 40");
         }
     }
 
@@ -39,9 +42,12 @@ public class XifradorRotX implements Xifrador {
 
     public String desxifra(TextXifrat xifrat, String clau) throws ClauNoSuportada {
         try {
-            return desxifraRotx(xifrat.toString(), Integer.parseInt(clau));
+            int clauInt = Integer.parseInt(clau);
+            if (clauInt < 0 || clauInt > 40)
+                throw new ClauNoSuportada("Clau de RotX ha de ser un sencer de 0 a 40");
+            return desxifraRotx(xifrat.toString(), clauInt);
         } catch (Exception e) {
-            throw new ClauNoSuportada(e.getMessage());
+            throw new ClauNoSuportada("Clau de RotX ha de ser un sencer de 0 a 40");
         }
     }
 

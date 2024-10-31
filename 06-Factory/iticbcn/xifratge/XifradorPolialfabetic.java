@@ -42,7 +42,7 @@ public class XifradorPolialfabetic implements Xifrador {
 
             return new TextXifrat(xifraPoliAlfabet(msg).getBytes());
         } catch (Exception e) {
-            throw new ClauNoSuportada(e.getMessage());
+            throw new ClauNoSuportada("La clau per xifrat Polialfabètic ha de ser un String convertible a long");
         }
     }
 
@@ -79,7 +79,7 @@ public class XifradorPolialfabetic implements Xifrador {
 
             return desxifraPoliAlfabet(xifrat.toString());
         } catch (Exception e) {
-            throw new ClauNoSuportada(e.getMessage());
+            throw new ClauNoSuportada("La clau de Polialfabètic ha de ser un String convertible a long");
         }
     }
 

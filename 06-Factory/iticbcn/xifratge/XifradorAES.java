@@ -11,8 +11,6 @@ public class XifradorAES implements Xifrador {
     public final String ALGORISME_HASH = "SHA-256";
     public final String FORMAT_AES = "AES/CBC/PKCS5Padding";
 
-    private final String CLAU = "kaodjapwd0e30id980fu30c023id2ipd";
-
     public XifradorAES() {
 
     }
@@ -24,7 +22,7 @@ public class XifradorAES implements Xifrador {
         try {
             return new TextXifrat(xifraAES(msg, clau));
         } catch (Exception e) {
-            throw new ClauNoSuportada(e.getMessage());
+            throw new ClauNoSuportada("Xifratxe monoalfabètic no suporta clau != null");
         }
     }
 
@@ -55,7 +53,7 @@ public class XifradorAES implements Xifrador {
         try {
             return desxifraAES(xifrat.getBytes(), clua);
         } catch (Exception e) {
-            throw new ClauNoSuportada(e.getMessage());
+            throw new ClauNoSuportada("Xifratxe monoalfabètic no suporta clau != null");
         }
     }
 
